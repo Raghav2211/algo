@@ -15,9 +15,8 @@ public class DFS {
      */
     // @formatter: on
 
-    public void traverse(TreeNode root) {
-        StringJoiner dfsTraverse = new StringJoiner(",");
-        if(root == null) return;
+    public StringJoiner traverseUsingStack(TreeNode root,StringJoiner dfsTraverse) {
+        if(root == null) return dfsTraverse;
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
@@ -30,7 +29,15 @@ public class DFS {
                 stack.push(treeNode.left);
             }
         }
-        System.out.println(dfsTraverse);
+        return dfsTraverse;
+    }
+
+    public StringJoiner traverseUsingRecursive(TreeNode root , StringJoiner dfsTraverse) {
+        if (root == null) return dfsTraverse;
+        dfsTraverse.add(String.valueOf(root.val));
+        traverseUsingRecursive(root.left,dfsTraverse);
+        traverseUsingRecursive(root.right,dfsTraverse);
+        return dfsTraverse;
     }
 
     public static void main(String[] args) {
@@ -46,7 +53,8 @@ public class DFS {
         root.right.right = new TreeNode(7);
 
         DFS dfs = new DFS();
-        dfs.traverse(root);
+        System.out.println(dfs.traverseUsingStack(root, new StringJoiner(",")));
+        System.out.println(dfs.traverseUsingRecursive(root, new StringJoiner(",")));
 
     }
 }
