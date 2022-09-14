@@ -1,6 +1,7 @@
 package com.github.devraghav.leetcode;
 
 import java.util.Stack;
+import java.util.StringJoiner;
 
 public class DFS {
     // @formatter: off
@@ -15,12 +16,13 @@ public class DFS {
     // @formatter: on
 
     public void traverse(TreeNode root) {
+        StringJoiner dfsTraverse = new StringJoiner(",");
         if(root == null) return;
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode treeNode = stack.pop();
-            System.out.print(treeNode.val+",");
+            dfsTraverse.add((String.valueOf(treeNode.val)));
             if(treeNode.right !=null ){
                 stack.push(treeNode.right);
             }
@@ -28,6 +30,7 @@ public class DFS {
                 stack.push(treeNode.left);
             }
         }
+        System.out.println(dfsTraverse);
     }
 
     public static void main(String[] args) {
