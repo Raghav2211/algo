@@ -14,7 +14,6 @@ public class Find_Minimum_Rotate_Sorted_Array {
             int midEle = nums[mid];
             minimum = Math.min(minimum, midEle);
             int leftMostEle = nums[low];
-            int rightMostEle = nums[high];
             if (midEle >= leftMostEle) {
                 low = mid + 1;
             } else {
