@@ -3,6 +3,7 @@ package com.github.devraghav.leetcode;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.TimeUnit;
 
 public class BinaryTree_Search {
     // @formatter: off
@@ -60,6 +61,12 @@ public class BinaryTree_Search {
         return false;
     }
 
+    public boolean using_dfs_recursive(TreeNode root , int target) {
+        if(root == null ) return false;
+        if(root.val == target) return true;
+        return using_dfs_recursive(root.left,target) || using_dfs_recursive(root.right,target);
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
 
@@ -74,14 +81,52 @@ public class BinaryTree_Search {
         root.right.right = new TreeNode(7);
 
         BinaryTree_Search binaryTree_search = new BinaryTree_Search();
+        long startTimeInNanos = System.nanoTime();
+        boolean isPresent = binaryTree_search.using_bfs(root,5);
+        long endTimeInNanos = System.nanoTime();
+        System.out.println(
+                String.format("Time elapsed to in search using bfs %d(in nanos) with result %s",
+                        (endTimeInNanos-startTimeInNanos),isPresent));
 
-        System.out.println(binaryTree_search.using_bfs(root,5));
-        System.out.println(binaryTree_search.using_dfs(root,5));
+         startTimeInNanos = System.nanoTime();
+         isPresent=binaryTree_search.using_dfs(root,5);
+         endTimeInNanos = System.nanoTime();
+        System.out.println(
+                String.format("Time elapsed to in search using dfs %d(in nanos) with result %s",
+                        (endTimeInNanos-startTimeInNanos),isPresent));
 
-        System.out.println(binaryTree_search.using_bfs(root,3));
-        System.out.println(binaryTree_search.using_dfs(root,3));
 
-        System.out.println(binaryTree_search.using_bfs(root,9));
-        System.out.println(binaryTree_search.using_dfs(root,9));
+        startTimeInNanos = System.nanoTime();
+        isPresent=binaryTree_search.using_dfs_recursive(root,5);
+        endTimeInNanos = System.nanoTime();
+        System.out.println(
+                String.format("Time elapsed to in search using dfs_recursive %d(in nanos) with result %s",
+                        (endTimeInNanos-startTimeInNanos),isPresent));
+
+//        System.out.println(binaryTree_search.using_bfs(root,3));
+//        System.out.println(binaryTree_search.using_dfs(root,3));
+//        System.out.println(binaryTree_search.using_dfs_recursive(root,3));
+//
+        startTimeInNanos = System.nanoTime();
+        isPresent=binaryTree_search.using_bfs(root,9);
+        endTimeInNanos = System.nanoTime();
+        System.out.println(
+                String.format("Time elapsed to in search(not available) using bfs %d(in nanos) with result %s",
+                        (endTimeInNanos-startTimeInNanos),isPresent));
+
+
+        startTimeInNanos = System.nanoTime();
+        isPresent=binaryTree_search.using_dfs(root,9);
+        endTimeInNanos = System.nanoTime();
+        System.out.println(
+                String.format("Time elapsed to in search(not available) using dfs %d(in nanos) with result %s",
+                        (endTimeInNanos-startTimeInNanos),isPresent));
+
+        startTimeInNanos = System.nanoTime();
+        isPresent=binaryTree_search.using_dfs_recursive(root,9);
+        endTimeInNanos = System.nanoTime();
+        System.out.println(
+                String.format("Time elapsed to in search(not available) using dfs_recursive %d(in nanos) with result %s",
+                        (endTimeInNanos-startTimeInNanos),isPresent));
     }
 }
