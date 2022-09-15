@@ -53,9 +53,7 @@ public class BinaryTree_Sum {
 
     public int sum_using_dfs_recursive(TreeNode root) {
         if(root == null) return 0;
-        int leftSum = sum_using_dfs_recursive(root.left);
-        int rightSum = sum_using_dfs_recursive(root.right);
-        return root.val+leftSum+rightSum;
+        return root.val+sum_using_dfs_recursive(root.left)+sum_using_dfs_recursive(root.right);
     }
 
     public static void main(String[] args) {
