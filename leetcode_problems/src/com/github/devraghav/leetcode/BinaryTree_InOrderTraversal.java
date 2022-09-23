@@ -14,7 +14,7 @@ public class BinaryTree_InOrderTraversal {
      */
     // @formatter: on
 
-    private StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
+    public StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
         if(root == null) return stringJoiner;
         traverse(root.left,stringJoiner);
         stringJoiner.add(String.valueOf(root.val));
