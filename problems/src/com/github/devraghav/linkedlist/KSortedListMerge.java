@@ -1,8 +1,8 @@
-package com.github.devraghav;
+package com.github.devraghav.linkedlist;
 
-public class Merge_K_Sorted_LinkedList {
+public class KSortedListMerge {
 
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public ListNode merge(ListNode list1, ListNode list2) {
         if (list1 == null && list2 == null) {
             return null;
         }
@@ -26,12 +26,12 @@ public class Merge_K_Sorted_LinkedList {
         return head.next;
     }
 
-    public ListNode mergeKLists(ListNode[] lists) {
+    public ListNode merge(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
         if (lists.length == 1) return lists[0];
-        ListNode head = mergeTwoLists(lists[0], lists[1]);
+        ListNode head = merge(lists[0], lists[1]);
         for (int i = 2; i < lists.length; i++) {
-            head = mergeTwoLists(head, lists[i]);
+            head = merge(head, lists[i]);
         }
         return head;
     }

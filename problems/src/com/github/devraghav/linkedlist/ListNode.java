@@ -1,4 +1,4 @@
-package com.github.devraghav;
+package com.github.devraghav.linkedlist;
 
 public class ListNode {
     public int val;

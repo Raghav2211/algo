@@ -1,15 +1,15 @@
-package com.github.devraghav;
+package com.github.devraghav.linkedlist;
 
 
-public class Reverse_LinkedList {
+public class Reverse {
     //[1,2,3,4,5]
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverse(ListNode head) {
         ListNode prevNode = null;
-        while(head!=null) {
+        while (head != null) {
             ListNode next = head.next;//2,3
             head.next = prevNode;//1-> null , 2->1->null
             prevNode = head;// 1 , 2
-            head  = next; // 2 ,3
+            head = next; // 2 ,3
         }
         return prevNode;
     }
@@ -20,7 +20,7 @@ public class Reverse_LinkedList {
         listNode.next.next = new ListNode(3);
         listNode.next.next.next = new ListNode(4);
         listNode.next.next.next.next = new ListNode(5);
-        Reverse_LinkedList reverse_linkedList = new Reverse_LinkedList();
-        System.out.println(reverse_linkedList.reverseList(listNode).val);
+        Reverse reverse_linkedList = new Reverse();
+        System.out.println(reverse_linkedList.reverse(listNode).val);
     }
 }

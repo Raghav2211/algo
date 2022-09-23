@@ -1,10 +1,10 @@
-package com.github.devraghav;
+package com.github.devraghav.linkedlist;
 
 import java.util.StringJoiner;
 
-public class Merge_2_Sorted_LinkedList {
+public class TwoSortedListMerge {
 
-    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    public ListNode merge(ListNode list1, ListNode list2) {
         if (list1 == null && list2 == null) {
             return null;
         }
@@ -37,10 +37,10 @@ public class Merge_2_Sorted_LinkedList {
         list2.next = new ListNode(3);
         list2.next.next = new ListNode(4);
 
-        Merge_2_Sorted_LinkedList merge_2_sorted_linkedList= new Merge_2_Sorted_LinkedList();
-        ListNode mergedListNodeHead = merge_2_sorted_linkedList.mergeTwoLists(list1,list2);
+        TwoSortedListMerge merge_2_sorted_linkedList = new TwoSortedListMerge();
+        ListNode mergedListNodeHead = merge_2_sorted_linkedList.merge(list1, list2);
         StringJoiner stringJoiner = new StringJoiner(",");
-        while(mergedListNodeHead!=null) {
+        while (mergedListNodeHead != null) {
             stringJoiner.add(String.valueOf(mergedListNodeHead.val));
             mergedListNodeHead = mergedListNodeHead.next;
         }

@@ -1,8 +1,8 @@
-package com.github.devraghav;
+package com.github.devraghav.linkedlist;
 
-public class LinkedList_Cycle {
+public class Cycle {
     
-    public ListNode detectCycle(ListNode head) {
+    public ListNode detectAndReturn(ListNode head) {
         if (head == null || head.next == null) return null;
         ListNode slow = head;
         ListNode fast = head;
