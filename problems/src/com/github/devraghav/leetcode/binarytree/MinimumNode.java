@@ -1,10 +1,11 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
+
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class BinaryTree_Minimum {
+public class MinimumNode {
 
     // @formatter: off
     /**
@@ -15,7 +16,7 @@ public class BinaryTree_Minimum {
      */
     // @formatter: on
 
-    public int getMinimum_usingDFS(TreeNode root) {
+    public int getUsingDFS(TreeNode root) {
         int minimum = Integer.MAX_VALUE;
         if(root == null) return minimum;
         Stack<TreeNode> stack = new Stack<>();
@@ -33,12 +34,12 @@ public class BinaryTree_Minimum {
         return minimum;
     }
 
-    public int getMinimum_usingDFS_Recursive(TreeNode root) {
+    public int getUsingRecursive(TreeNode root) {
         if(root == null) return Integer.MAX_VALUE;
-        return Math.min(root.val,Math.min(getMinimum_usingDFS_Recursive(root.left),
-                getMinimum_usingDFS_Recursive(root.right)));
+        return Math.min(root.val,Math.min(getUsingRecursive(root.left),
+                getUsingRecursive(root.right)));
     }
-    public int getMinimum_usingBFS(TreeNode root) {
+    public int getUsingBFS(TreeNode root) {
         int minimum = Integer.MAX_VALUE;
         if(root == null) return minimum;
         Queue<TreeNode> queue = new LinkedList<>();
@@ -69,10 +70,10 @@ public class BinaryTree_Minimum {
         root.right = new TreeNode(3);
         root.right.right = new TreeNode(12);
 
-        BinaryTree_Minimum binaryTree_minimum = new BinaryTree_Minimum();
-        System.out.println(binaryTree_minimum.getMinimum_usingDFS(root));
-        System.out.println(binaryTree_minimum.getMinimum_usingDFS_Recursive(root));
-        System.out.println(binaryTree_minimum.getMinimum_usingBFS(root));
+        MinimumNode binaryTree_minimum = new MinimumNode();
+        System.out.println(binaryTree_minimum.getUsingDFS(root));
+        System.out.println(binaryTree_minimum.getUsingRecursive(root));
+        System.out.println(binaryTree_minimum.getUsingBFS(root));
 
     }
 }

@@ -1,19 +1,20 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
-public class BST_Validate {
 
-    public boolean isValidBST(TreeNode root) {
+public class BinarySearchTree {
+
+    public boolean isValid(TreeNode root) {
         if(root == null ) return true;
-        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return isValid(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private boolean isValidBST(TreeNode root, long minVal, long maxVal) {
+    private boolean isValid(TreeNode root, long minVal, long maxVal) {
         if(root == null) return true;
 
         if(root.val >= maxVal || root.val <= minVal) {
             return false;
         }
-        return isValidBST(root.left ,minVal , root.val) && isValidBST(root.right , root.val, maxVal);
+        return isValid(root.left ,minVal , root.val) && isValid(root.right , root.val, maxVal);
     }
 
     public static void main(String[] args) {
@@ -23,8 +24,8 @@ public class BST_Validate {
         root.left = new TreeNode(1);
         root.right = new TreeNode(3);
 
-        BST_Validate bst_validate = new BST_Validate();
-        System.out.println(bst_validate.isValidBST(root));
+        BinarySearchTree bst_validate = new BinarySearchTree();
+        System.out.println(bst_validate.isValid(root));
 
         root = new TreeNode(5);
 
@@ -35,7 +36,7 @@ public class BST_Validate {
         root.right.left = new TreeNode(3);
         root.right.right = new TreeNode(6);
 
-        System.out.println(bst_validate.isValidBST(root));
+        System.out.println(bst_validate.isValid(root));
 
     }
 

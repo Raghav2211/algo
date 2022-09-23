@@ -1,13 +1,14 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
 import java.util.StringJoiner;
 
-public class BST_InsertNode {
+public class BinarySearchTreeInsertNode {
+
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null) return new TreeNode(val);
         if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
-        } else if(root.val < val) {
+        } else if (root.val < val) {
             root.right = insertIntoBST(root.right, val);
         }
         return root;
@@ -22,9 +23,9 @@ public class BST_InsertNode {
         root.left.right
                 = new TreeNode(3);
 
-        BST_InsertNode bst_insertNode = new BST_InsertNode();
+        BinarySearchTreeInsertNode bst_insertNode = new BinarySearchTreeInsertNode();
 
-        BinaryTree_InOrderTraversal binaryTree_inOrderTraversal = new BinaryTree_InOrderTraversal();
-        System.out.println(binaryTree_inOrderTraversal.traverse(bst_insertNode.insertIntoBST(root,5), new StringJoiner(",")));
+        InorderTraversal binaryTree_inOrderTraversal = new InorderTraversal();
+        System.out.println(binaryTree_inOrderTraversal.traverse(bst_insertNode.insertIntoBST(root, 5), new StringJoiner(",")));
     }
 }

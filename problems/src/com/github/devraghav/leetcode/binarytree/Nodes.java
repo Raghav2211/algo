@@ -1,6 +1,7 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
-public class BinaryTree_CountNodes {
+
+public class Nodes {
 
     // @formatter: off
     /**
@@ -30,7 +31,7 @@ public class BinaryTree_CountNodes {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_CountNodes binaryTree_countNodes    = new BinaryTree_CountNodes();
+        Nodes binaryTree_countNodes    = new Nodes();
         System.out.println(binaryTree_countNodes.count(root));
 
 

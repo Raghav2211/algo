@@ -1,9 +1,10 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
+
 
 
 import java.util.StringJoiner;
 
-public class BinaryTree_InOrderTraversal {
+public class PostOrderTraversal {
 
     // @formatter: off
     /**
@@ -14,11 +15,11 @@ public class BinaryTree_InOrderTraversal {
      */
     // @formatter: on
 
-    public StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
+    private StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
         if(root == null) return stringJoiner;
         traverse(root.left,stringJoiner);
-        stringJoiner.add(String.valueOf(root.val));
         traverse(root.right,stringJoiner);
+        stringJoiner.add(String.valueOf(root.val));
         return stringJoiner;
     }
 
@@ -35,7 +36,7 @@ public class BinaryTree_InOrderTraversal {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_InOrderTraversal binaryTree_preOrderTraversal  = new BinaryTree_InOrderTraversal();
+        PostOrderTraversal binaryTree_preOrderTraversal  = new PostOrderTraversal();
         System.out.println(binaryTree_preOrderTraversal.traverse(root, new StringJoiner(",")));
     }
 }

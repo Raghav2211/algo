@@ -1,9 +1,12 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
 
+
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringJoiner;
 
-public class BinaryTree_PostOrderTraversal {
+public class LevelOrderTraversal {
 
     // @formatter: off
     /**
@@ -16,9 +19,18 @@ public class BinaryTree_PostOrderTraversal {
 
     private StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
         if(root == null) return stringJoiner;
-        traverse(root.left,stringJoiner);
-        traverse(root.right,stringJoiner);
-        stringJoiner.add(String.valueOf(root.val));
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode treeNode = queue.poll();
+            stringJoiner.add(String.valueOf(treeNode.val));
+            if(treeNode.left !=null) {
+                queue.add(treeNode.left);
+            }
+            if(treeNode.right !=null) {
+                queue.add(treeNode.right);
+            }
+        }
         return stringJoiner;
     }
 
@@ -35,7 +47,7 @@ public class BinaryTree_PostOrderTraversal {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_PostOrderTraversal binaryTree_preOrderTraversal  = new BinaryTree_PostOrderTraversal();
+        LevelOrderTraversal binaryTree_preOrderTraversal  = new LevelOrderTraversal();
         System.out.println(binaryTree_preOrderTraversal.traverse(root, new StringJoiner(",")));
     }
 }

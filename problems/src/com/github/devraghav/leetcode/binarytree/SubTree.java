@@ -1,6 +1,7 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
-public class BinaryTree_IsSubTree {
+
+public class SubTree {
 
     // @formatter: off
     /**    main                   subtree
@@ -12,11 +13,11 @@ public class BinaryTree_IsSubTree {
      */
     // @formatter: on
 
-    public boolean isMatch(TreeNode root, TreeNode subRoot) {
+    public boolean isReplica(TreeNode root, TreeNode subRoot) {
         if(root == null && subRoot == null) return true;
         if(root == null || subRoot == null) return false;
         if(root.val == subRoot.val) {
-            return isMatch(root.left,subRoot.left) && isMatch(root.right, subRoot.right);
+            return isReplica(root.left,subRoot.left) && isReplica(root.right, subRoot.right);
         }
         return false;
     }
@@ -26,7 +27,7 @@ public class BinaryTree_IsSubTree {
         if(subRoot == null) return true;
         if(root == null) return false;
         if(root.val == subRoot.val) {
-            var isMatch = isMatch(root,subRoot);
+            var isMatch = isReplica(root,subRoot);
             if(isMatch) return true;
         }
         return isSubtree(root.left,subRoot) || isSubtree(root.right,subRoot);
@@ -54,7 +55,7 @@ public class BinaryTree_IsSubTree {
         subTreeRoot.left = new TreeNode(6);
         subTreeRoot.right = new TreeNode(7);
 
-        BinaryTree_IsSubTree binaryTree_isSubTree    = new BinaryTree_IsSubTree();
+        SubTree binaryTree_isSubTree    = new SubTree();
         System.out.println(binaryTree_isSubTree.isSubtree(mainTreeRoot,subTreeRoot));
 
         subTreeRoot = new TreeNode(3);

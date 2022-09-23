@@ -1,10 +1,10 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
+
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.StringJoiner;
 
-public class BinaryTree_MaximumLevelSum {
+public class MaximumLevelSum {
     // @formatter: off
     /**
      *       1
@@ -13,7 +13,7 @@ public class BinaryTree_MaximumLevelSum {
      *
      */
     // @formatter: on
-    public int maxLevelSum(TreeNode root) throws InterruptedException {
+    public int getLevel(TreeNode root) throws InterruptedException {
         if(root == null) return 0;
 
         Queue<TreeNode> treeNodes = new LinkedList<>();
@@ -65,8 +65,8 @@ public class BinaryTree_MaximumLevelSum {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_MaximumLevelSum binaryTree_maximumLevelSum  = new BinaryTree_MaximumLevelSum();
-        System.out.println(binaryTree_maximumLevelSum.maxLevelSum(root));
+        MaximumLevelSum binaryTree_maximumLevelSum  = new MaximumLevelSum();
+        System.out.println(binaryTree_maximumLevelSum.getLevel(root));
 
 
 
@@ -81,6 +81,6 @@ public class BinaryTree_MaximumLevelSum {
         root.right = new TreeNode(-3);
         root.right.left = new TreeNode(-6);
         root.right.right = new TreeNode(-7);
-        System.out.println(binaryTree_maximumLevelSum.maxLevelSum(root)); // TODO : handle negative nodes
+        System.out.println(binaryTree_maximumLevelSum.getLevel(root)); // TODO : handle negative nodes
     }
 }

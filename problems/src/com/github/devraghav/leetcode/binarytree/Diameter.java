@@ -1,6 +1,7 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
-public class BinaryTree_Height {
+
+public class Diameter {
 
     // @formatter: off
     /**
@@ -11,11 +12,18 @@ public class BinaryTree_Height {
      *
      */
     // @formatter: on
+        int diam = 0;
+    private int height(TreeNode root) {
+        if (root == null) return 0;
+        int left = height(root.left);
+        int right = height(root.right);
+        diam = Math.max(diam, left + right);
+        return Math.max(left, right) + 1;
+    }
 
-    public int calculate(TreeNode root) {
-        if(root == null) return 0;
-
-        return Math.max(calculate(root.left) , calculate(root.right)) + 1;
+    public int calculate(TreeNode root){
+        height(root);
+        return diam;
     }
 
     public static void main(String[] args) {
@@ -33,7 +41,7 @@ public class BinaryTree_Height {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_Height binaryTree_countNodes    = new BinaryTree_Height();
+        Diameter binaryTree_countNodes    = new Diameter();
         System.out.println(binaryTree_countNodes.calculate(root));
 
 

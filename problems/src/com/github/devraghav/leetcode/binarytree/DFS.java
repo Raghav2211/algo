@@ -1,4 +1,4 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
 import java.util.Stack;
 import java.util.StringJoiner;

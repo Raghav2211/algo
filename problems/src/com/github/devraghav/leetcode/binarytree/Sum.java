@@ -1,10 +1,11 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
+
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class BinaryTree_Sum {
+public class Sum {
 
     // @formatter: off
     /**
@@ -15,7 +16,7 @@ public class BinaryTree_Sum {
      */
     // @formatter: on
 
-    public int sum_using_dfs(TreeNode root) {
+    public int calculateUsingDFS(TreeNode root) {
         int sum = 0;
         if(root == null) return sum;
         Stack<TreeNode> stack = new Stack<>();
@@ -33,7 +34,7 @@ public class BinaryTree_Sum {
         return sum;
     }
 
-    public int sum_using_bfs(TreeNode root) {
+    public int calculateUsingBFS(TreeNode root) {
         int sum = 0;
         if(root == null) return sum;
         Queue<TreeNode> queue = new LinkedList<>();
@@ -51,9 +52,9 @@ public class BinaryTree_Sum {
         return sum;
     }
 
-    public int sum_using_dfs_recursive(TreeNode root) {
+    public int calculateUsingRecursive(TreeNode root) {
         if(root == null) return 0;
-        return root.val+sum_using_dfs_recursive(root.left)+sum_using_dfs_recursive(root.right);
+        return root.val+ calculateUsingRecursive(root.left)+ calculateUsingRecursive(root.right);
     }
 
     public static void main(String[] args) {
@@ -69,9 +70,9 @@ public class BinaryTree_Sum {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_Sum binaryTree_sum = new BinaryTree_Sum();
-        System.out.println(binaryTree_sum.sum_using_dfs(root));
-        System.out.println(binaryTree_sum.sum_using_bfs(root));
-        System.out.println(binaryTree_sum.sum_using_dfs_recursive(root));
+        Sum binaryTree_sum = new Sum();
+        System.out.println(binaryTree_sum.calculateUsingDFS(root));
+        System.out.println(binaryTree_sum.calculateUsingBFS(root));
+        System.out.println(binaryTree_sum.calculateUsingRecursive(root));
     }
 }

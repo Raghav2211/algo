@@ -1,6 +1,7 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
-public class BinaryTree_PathSum_Target {
+
+public class PathSum {
 
     // @formatter: off
     /**
@@ -12,10 +13,10 @@ public class BinaryTree_PathSum_Target {
      */
     // @formatter: on
 
-    public boolean hasPathSum(TreeNode root, int targetSum) {
+    public boolean isEqualToTarget(TreeNode root, int targetSum) {
         if(root == null) return false;
         if(root.left == null && root.right == null ) return targetSum - root.val == 0;
-        return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
+        return isEqualToTarget(root.left, targetSum - root.val) || isEqualToTarget(root.right, targetSum - root.val);
     }
 
     public static void main(String[] args) {
@@ -33,18 +34,18 @@ public class BinaryTree_PathSum_Target {
         root.right.right = new TreeNode(4);
         root.right.right.right = new TreeNode(1);
 
-        BinaryTree_PathSum_Target binaryTree_pathSum_target = new BinaryTree_PathSum_Target();
-        System.out.println(binaryTree_pathSum_target.hasPathSum(root,22));
-        System.out.println(binaryTree_pathSum_target.hasPathSum(root,26));
-        System.out.println(binaryTree_pathSum_target.hasPathSum(root,18));
-        System.out.println(binaryTree_pathSum_target.hasPathSum(root,23));
+        PathSum binaryTree_pathSum_target = new PathSum();
+        System.out.println(binaryTree_pathSum_target.isEqualToTarget(root,22));
+        System.out.println(binaryTree_pathSum_target.isEqualToTarget(root,26));
+        System.out.println(binaryTree_pathSum_target.isEqualToTarget(root,18));
+        System.out.println(binaryTree_pathSum_target.isEqualToTarget(root,23));
 
 
 
         TreeNode root2 = new TreeNode(1);
         // create left tree
         root.left = new TreeNode(2);
-        System.out.println(binaryTree_pathSum_target.hasPathSum(root2,1));
+        System.out.println(binaryTree_pathSum_target.isEqualToTarget(root2,1));
 
     }
 }

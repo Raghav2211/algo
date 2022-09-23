@@ -1,15 +1,17 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
+
 
 import java.util.StringJoiner;
 
-public class BinaryTree_Merge_TwoTree {
-    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
-        if(root2 == null && root1 == null) return null;
-        if(root2 == null) return root1;
-        if(root1 == null) return root2;
-        root1.val+=root2.val;
-        root1.left = mergeTrees(root1.left,root2.left);
-        root1.right = mergeTrees(root1.right,root2.right);
+public class MergeTwoTree {
+
+    public TreeNode merge(TreeNode root1, TreeNode root2) {
+        if (root2 == null && root1 == null) return null;
+        if (root2 == null) return root1;
+        if (root1 == null) return root2;
+        root1.val += root2.val;
+        root1.left = merge(root1.left, root2.left);
+        root1.right = merge(root1.right, root2.right);
         return root1;
     }
 
@@ -33,10 +35,10 @@ public class BinaryTree_Merge_TwoTree {
         root2.right = new TreeNode(3);
         root2.right.right = new TreeNode(7);
 
-        BinaryTree_Merge_TwoTree binaryTree_merger_twoTree = new BinaryTree_Merge_TwoTree();
-        root1 = binaryTree_merger_twoTree.mergeTrees(root1,root2);
+        MergeTwoTree binaryTree_merger_twoTree = new MergeTwoTree();
+        root1 = binaryTree_merger_twoTree.merge(root1, root2);
 
-        BinaryTree_InOrderTraversal binaryTree_inOrderTraversal = new BinaryTree_InOrderTraversal();
+        InorderTraversal binaryTree_inOrderTraversal = new InorderTraversal();
         System.out.println(binaryTree_inOrderTraversal.traverse(root1, new StringJoiner(",")));
 
     }

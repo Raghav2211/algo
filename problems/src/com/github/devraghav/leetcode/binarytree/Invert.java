@@ -1,16 +1,18 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
+
 
 import java.util.StringJoiner;
 
-public class BinaryTree_Invert {
-    public TreeNode invertTree(TreeNode root) {
+public class Invert {
+
+    public TreeNode doAndReturn(TreeNode root) {
 
         if(root == null) return null;
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
-        invertTree(root.left);
-        invertTree(root.right);
+        doAndReturn(root.left);
+        doAndReturn(root.right);
         return root;
     }
 
@@ -27,9 +29,9 @@ public class BinaryTree_Invert {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(9);
 
-        BinaryTree_Invert binaryTree_invert = new BinaryTree_Invert();
-        root = binaryTree_invert.invertTree(root);
-        BinaryTree_InOrderTraversal binaryTree_inOrderTraversal = new BinaryTree_InOrderTraversal();
+        Invert binaryTree_invert = new Invert();
+        root = binaryTree_invert.doAndReturn(root);
+        InorderTraversal binaryTree_inOrderTraversal = new InorderTraversal();
         System.out.println(binaryTree_inOrderTraversal.traverse(root, new StringJoiner(",")));
     }
 }

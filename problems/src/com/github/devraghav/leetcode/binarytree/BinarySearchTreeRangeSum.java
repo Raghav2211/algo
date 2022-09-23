@@ -1,15 +1,16 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
-public class BST_RangeSum {
+
+public class BinarySearchTreeRangeSum {
     private int sum = 0;
 
-    public int rangeSumBST(TreeNode root, int low, int high) {
+    public int rangeSum(TreeNode root, int low, int high) {
         if(root == null) return sum;
         if(root.val >= low && root.val <= high){
             sum+=root.val;
         }
-        rangeSumBST(root.left,low,high);
-        rangeSumBST(root.right,low,high);
+        rangeSum(root.left,low,high);
+        rangeSum(root.right,low,high);
         return sum;
     }
 
@@ -24,7 +25,7 @@ public class BST_RangeSum {
         // create right tree
         root.right = new TreeNode(15 );
         root.right.right = new TreeNode(18);
-        BST_RangeSum bst_rangeSum = new BST_RangeSum();
-        System.out.println(bst_rangeSum.rangeSumBST(root,7,15));
+        BinarySearchTreeRangeSum bst_rangeSum = new BinarySearchTreeRangeSum();
+        System.out.println(bst_rangeSum.rangeSum(root,7,15));
     }
 }

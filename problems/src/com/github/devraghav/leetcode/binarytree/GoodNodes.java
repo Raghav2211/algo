@@ -1,19 +1,20 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
-public class BinaryTree_CountGoodNodes {
+
+public class GoodNodes {
     int goodNodes = 0;
 
-    public int goodNodes(TreeNode root) {
+    public int count(TreeNode root) {
         if(root == null ) return goodNodes;
-        return goodNodes(root,root.val);
+        return count(root,root.val);
     }
-    private int goodNodes(TreeNode root , int max) {
+    private int count(TreeNode root , int max) {
         if(root == null) return goodNodes;
         if(root.val >= max) {
             goodNodes+=1;
         }
-        goodNodes(root.left , Math.max(max , root.left == null ? max : root.left.val));
-        goodNodes(root.right , Math.max(max , root.right == null ? max : root.right.val));
+        count(root.left , Math.max(max , root.left == null ? max : root.left.val));
+        count(root.right , Math.max(max , root.right == null ? max : root.right.val));
         return goodNodes;
     }
 
@@ -29,8 +30,8 @@ public class BinaryTree_CountGoodNodes {
         root.right.left = new TreeNode(1);
         root.right.right = new TreeNode(5);
 
-        BinaryTree_CountGoodNodes binaryTree_countGoodNodes = new BinaryTree_CountGoodNodes();
-        System.out.println( binaryTree_countGoodNodes.goodNodes(root));
+        GoodNodes binaryTree_countGoodNodes = new GoodNodes();
+        System.out.println( binaryTree_countGoodNodes.count(root));
     }
 
 }

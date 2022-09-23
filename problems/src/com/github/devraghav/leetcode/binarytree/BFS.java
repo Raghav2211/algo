@@ -1,13 +1,11 @@
-package com.github.devraghav.leetcode;
-
+package com.github.devraghav.leetcode.binarytree;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringJoiner;
 
-public class BinaryTree_LevelOrderTraversal {
-
-    // @formatter: off
+public class BFS {
+// @formatter: off
     /**
      *       1
      *    2      3
@@ -16,21 +14,21 @@ public class BinaryTree_LevelOrderTraversal {
      */
     // @formatter: on
 
-    private StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
-        if(root == null) return stringJoiner;
+    public StringJoiner traverseUsingStack(TreeNode root, StringJoiner bfsTraverse) {
+        if(root == null) return bfsTraverse;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
             TreeNode treeNode = queue.poll();
-            stringJoiner.add(String.valueOf(treeNode.val));
-            if(treeNode.left !=null) {
+            bfsTraverse.add(String.valueOf(treeNode.val));
+            if(treeNode.left!=null ){
                 queue.add(treeNode.left);
             }
-            if(treeNode.right !=null) {
+            if(treeNode.right!=null ){
                 queue.add(treeNode.right);
             }
         }
-        return stringJoiner;
+        return bfsTraverse;
     }
 
     public static void main(String[] args) {
@@ -46,7 +44,8 @@ public class BinaryTree_LevelOrderTraversal {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_LevelOrderTraversal binaryTree_preOrderTraversal  = new BinaryTree_LevelOrderTraversal();
-        System.out.println(binaryTree_preOrderTraversal.traverse(root, new StringJoiner(",")));
+        BFS bfs = new BFS();
+        System.out.println(bfs.traverseUsingStack(root, new StringJoiner(",")));
+
     }
 }

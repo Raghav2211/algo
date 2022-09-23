@@ -1,4 +1,4 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
 
 public class TreeNode {
     int val;

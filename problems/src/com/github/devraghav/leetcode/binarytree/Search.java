@@ -1,11 +1,11 @@
-package com.github.devraghav.leetcode;
+package com.github.devraghav.leetcode.binarytree;
+
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
-import java.util.concurrent.TimeUnit;
 
-public class BinaryTree_Search {
+public class Search {
     // @formatter: off
     /**
      *       1
@@ -16,7 +16,7 @@ public class BinaryTree_Search {
     // @formatter: on
 
 
-    public boolean using_bfs(TreeNode root , int target) {
+    public boolean isNodeExistsUsingBFS(TreeNode root , int target) {
         if(root == null) return false;
         if(root.val == target) return true;
 
@@ -40,7 +40,7 @@ public class BinaryTree_Search {
         return false;
     }
 
-    public boolean using_dfs(TreeNode root , int target) {
+    public boolean isNodeExistsUsingDFS(TreeNode root , int target) {
         if(root == null) return false;
         if(root.val == target) return true;
 
@@ -61,10 +61,10 @@ public class BinaryTree_Search {
         return false;
     }
 
-    public boolean using_dfs_recursive(TreeNode root , int target) {
+    public boolean isNodeExistsUsingRecursive(TreeNode root , int target) {
         if(root == null ) return false;
         if(root.val == target) return true;
-        return using_dfs_recursive(root.left,target) || using_dfs_recursive(root.right,target);
+        return isNodeExistsUsingRecursive(root.left,target) || isNodeExistsUsingRecursive(root.right,target);
     }
 
     public static void main(String[] args) {
@@ -80,16 +80,16 @@ public class BinaryTree_Search {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
 
-        BinaryTree_Search binaryTree_search = new BinaryTree_Search();
+        Search binaryTree_search = new Search();
         long startTimeInNanos = System.nanoTime();
-        boolean isPresent = binaryTree_search.using_bfs(root,5);
+        boolean isPresent = binaryTree_search.isNodeExistsUsingBFS(root,5);
         long endTimeInNanos = System.nanoTime();
         System.out.println(
                 String.format("Time elapsed to in search using bfs %d(in nanos) with result %s",
                         (endTimeInNanos-startTimeInNanos),isPresent));
 
          startTimeInNanos = System.nanoTime();
-         isPresent=binaryTree_search.using_dfs(root,5);
+         isPresent=binaryTree_search.isNodeExistsUsingDFS(root,5);
          endTimeInNanos = System.nanoTime();
         System.out.println(
                 String.format("Time elapsed to in search using dfs %d(in nanos) with result %s",
@@ -97,7 +97,7 @@ public class BinaryTree_Search {
 
 
         startTimeInNanos = System.nanoTime();
-        isPresent=binaryTree_search.using_dfs_recursive(root,5);
+        isPresent=binaryTree_search.isNodeExistsUsingRecursive(root,5);
         endTimeInNanos = System.nanoTime();
         System.out.println(
                 String.format("Time elapsed to in search using dfs_recursive %d(in nanos) with result %s",
@@ -108,7 +108,7 @@ public class BinaryTree_Search {
 //        System.out.println(binaryTree_search.using_dfs_recursive(root,3));
 //
         startTimeInNanos = System.nanoTime();
-        isPresent=binaryTree_search.using_bfs(root,9);
+        isPresent=binaryTree_search.isNodeExistsUsingBFS(root,9);
         endTimeInNanos = System.nanoTime();
         System.out.println(
                 String.format("Time elapsed to in search(not available) using bfs %d(in nanos) with result %s",
@@ -116,14 +116,14 @@ public class BinaryTree_Search {
 
 
         startTimeInNanos = System.nanoTime();
-        isPresent=binaryTree_search.using_dfs(root,9);
+        isPresent=binaryTree_search.isNodeExistsUsingDFS(root,9);
         endTimeInNanos = System.nanoTime();
         System.out.println(
                 String.format("Time elapsed to in search(not available) using dfs %d(in nanos) with result %s",
                         (endTimeInNanos-startTimeInNanos),isPresent));
 
         startTimeInNanos = System.nanoTime();
-        isPresent=binaryTree_search.using_dfs_recursive(root,9);
+        isPresent=binaryTree_search.isNodeExistsUsingRecursive(root,9);
         endTimeInNanos = System.nanoTime();
         System.out.println(
                 String.format("Time elapsed to in search(not available) using dfs_recursive %d(in nanos) with result %s",
