@@ -17,7 +17,7 @@ public class LevelOrderTraversal {
      */
     // @formatter: on
 
-    private StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
+    public StringJoiner traverse(TreeNode root, StringJoiner stringJoiner) {
         if(root == null) return stringJoiner;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
