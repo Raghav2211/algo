@@ -1,18 +1,22 @@
 package com.github.devraghav.dp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GridTraveler {
 
     public long travel(int noOfGridRow, int noOfGridColumn) {
-        return travel(noOfGridRow, noOfGridColumn, new long[noOfGridRow][noOfGridColumn]);
+        return travel(noOfGridRow, noOfGridColumn, new HashMap<>());
     }
 
-    public long travel(int noOfGridRow, int noOfGridColumn, long[][] memoization) {
+    public long travel(int noOfGridRow, int noOfGridColumn, Map<String, Long> memoization) {
         if (noOfGridRow == 0 || noOfGridColumn == 0) return 0;
         if (noOfGridRow == 1 || noOfGridColumn == 1) return 1;
-        if (memoization[noOfGridRow - 1][noOfGridColumn - 1] != 0)
-            return memoization[noOfGridRow - 1][noOfGridColumn - 1];
-        memoization[noOfGridRow - 1][noOfGridColumn - 1] = travel(noOfGridRow - 1, noOfGridColumn, memoization) + travel(noOfGridRow, noOfGridColumn - 1, memoization);
-        return memoization[noOfGridRow - 1][noOfGridColumn - 1];
+        var key = noOfGridRow + "-" + noOfGridColumn;
+        if (memoization.containsKey(key))
+            return memoization.get(key);
+        memoization.put(key, travel(noOfGridRow - 1, noOfGridColumn, memoization) + travel(noOfGridRow, noOfGridColumn - 1, memoization));
+        return memoization.get(key);
     }
 
 
