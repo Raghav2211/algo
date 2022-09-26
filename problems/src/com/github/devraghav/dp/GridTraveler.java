@@ -1,4 +1,4 @@
-package com.github.devraghav;
+package com.github.devraghav.dp;
 
 public class GridTraveler {
 

@@ -1,4 +1,4 @@
-package com.github.devraghav;
+package com.github.devraghav.dp;
 
 import java.util.HashMap;
 import java.util.Map;
