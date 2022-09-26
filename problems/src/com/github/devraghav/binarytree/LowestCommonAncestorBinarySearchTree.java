@@ -1,7 +1,7 @@
 package com.github.devraghav.binarytree;
 
-public class LowestCommonAncestor {
-    
+public class LowestCommonAncestorBinarySearchTree {
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if ((p.val == root.val || q.val == root.val) || (p.val < root.val && q.val > root.val) || (p.val > root.val && q.val < root.val)) {
             return root;
@@ -19,7 +19,7 @@ public class LowestCommonAncestor {
         TreeNode root = new TreeNode(2);
         root.left = new TreeNode(1);
         root.right = new TreeNode(3);
-        LowestCommonAncestor lowestCommonAncestor = new LowestCommonAncestor();
+        LowestCommonAncestorBinarySearchTree lowestCommonAncestor = new LowestCommonAncestorBinarySearchTree();
         System.out.println(lowestCommonAncestor.lowestCommonAncestor(root, root.right, root.left).val);
     }
 }
