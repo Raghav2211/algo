@@ -22,10 +22,12 @@ public class GridTraveler {
 
     public static void main(String[] args) {
         GridTraveler gridTraveler = new GridTraveler();
+        System.out.println(gridTraveler.travel(1, 0));
         System.out.println(gridTraveler.travel(1, 1));
         System.out.println(gridTraveler.travel(2, 3));
         System.out.println(gridTraveler.travel(3, 2));
         System.out.println(gridTraveler.travel(3, 3));
+        System.out.println(gridTraveler.travel(3, 7));
         System.out.println(gridTraveler.travel(18, 18));
     }
 
