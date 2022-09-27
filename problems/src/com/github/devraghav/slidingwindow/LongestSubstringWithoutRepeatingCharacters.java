@@ -1,9 +1,9 @@
-package com.github.devraghav;
+package com.github.devraghav.slidingwindow;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class LongestSubstring_WithoutRepeatingCharacters {
+public class LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring(String s) {
         int start = 0;
@@ -31,7 +31,7 @@ public class LongestSubstring_WithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
-        LongestSubstring_WithoutRepeatingCharacters longestSubstring_withoutRepeatingCharacters = new LongestSubstring_WithoutRepeatingCharacters();
+        LongestSubstringWithoutRepeatingCharacters longestSubstring_withoutRepeatingCharacters = new LongestSubstringWithoutRepeatingCharacters();
         System.out.println(longestSubstring_withoutRepeatingCharacters.lengthOfLongestSubstring("abcabcbb"));
         System.out.println(longestSubstring_withoutRepeatingCharacters.lengthOfLongestSubstring("bbbbb"));
         System.out.println(longestSubstring_withoutRepeatingCharacters.lengthOfLongestSubstring("pwwkew"));
