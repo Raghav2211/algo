@@ -7,9 +7,9 @@ public class BinarySearchTreeNodeDelete {
     public TreeNode deleteNodeV2(TreeNode root, int key) {
         if (root == null) return null;
         if (key < root.val) {
-            root.left = deleteNodeV1(root.left, key);
+            root.left = deleteNodeV2(root.left, key);
         } else if (key > root.val) {
-            root.right = deleteNodeV1(root.right, key);
+            root.right = deleteNodeV2(root.right, key);
         } else {
             if (root.left == null) {
                 return root.right;
@@ -19,7 +19,7 @@ public class BinarySearchTreeNodeDelete {
             }
             var maximumOfLeft = maximumOfLeft(root.left);
             root.val = maximumOfLeft.val;
-            root.left = deleteNodeV1(root.left, maximumOfLeft.val);
+            root.left = deleteNodeV2(root.left, maximumOfLeft.val);
         }
         return root;
     }
