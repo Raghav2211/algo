@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Permutation {
+
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
         backtrack(list, new ArrayList<>(), nums);
@@ -22,7 +23,7 @@ public class Permutation {
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (permutation.contains(nums[i])) continue; // element already exists, skip
+            if (permutation.contains(nums[i])) continue;
             permutation.add(nums[i]);
             backtrack(permutations, permutation, nums);
             permutation.remove(permutation.size() - 1);
@@ -35,7 +36,7 @@ public class Permutation {
             return;
         }
         for (int i = 0; i < nums.length; i++) {
-            if (permutation.contains(nums[i])) continue; // element already exists, skip
+            if (permutation.contains(nums[i])) continue;
             permutation.add(nums[i]);
             backtrack(permutations, permutation, nums);
             permutation.remove(permutation.size() - 1);
